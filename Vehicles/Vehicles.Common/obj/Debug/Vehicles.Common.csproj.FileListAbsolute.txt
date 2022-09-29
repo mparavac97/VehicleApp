@@ -1,0 +1,5 @@
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Common\bin\Debug\Vehicles.Common.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Common\bin\Debug\Vehicles.Common.pdb
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Common\obj\Debug\Vehicles.Common.csprojAssemblyReference.cache
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Common\obj\Debug\Vehicles.Common.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Common\obj\Debug\Vehicles.Common.pdb

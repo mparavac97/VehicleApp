@@ -1,0 +1,8 @@
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Model\bin\Debug\Vehicles.Model.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Model\bin\Debug\Vehicles.Model.pdb
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Model\obj\Debug\Vehicles.Model.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Model\obj\Debug\Vehicles.Model.pdb
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Model\bin\Debug\Vehicles.Model.Common.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Model\bin\Debug\Vehicles.Model.Common.pdb
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Model\obj\Debug\Vehicles.Model.csprojAssemblyReference.cache
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Model\obj\Debug\Vehicles.Model.csproj.CopyComplete

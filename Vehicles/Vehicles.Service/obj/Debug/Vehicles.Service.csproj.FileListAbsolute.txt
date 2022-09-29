@@ -1,0 +1,5 @@
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service\bin\Debug\Vehicles.Service.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service\bin\Debug\Vehicles.Service.pdb
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service\obj\Debug\Vehicles.Service.csprojAssemblyReference.cache
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service\obj\Debug\Vehicles.Service.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service\obj\Debug\Vehicles.Service.pdb

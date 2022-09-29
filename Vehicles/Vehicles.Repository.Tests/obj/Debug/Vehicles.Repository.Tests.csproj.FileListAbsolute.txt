@@ -1,0 +1,5 @@
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Repository.Tests\bin\Debug\Vehicles.Repository.Tests.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Repository.Tests\bin\Debug\Vehicles.Repository.Tests.pdb
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Repository.Tests\obj\Debug\Vehicles.Repository.Tests.csprojAssemblyReference.cache
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Repository.Tests\obj\Debug\Vehicles.Repository.Tests.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Repository.Tests\obj\Debug\Vehicles.Repository.Tests.pdb

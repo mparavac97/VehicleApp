@@ -1,0 +1,4 @@
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Service.Common.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Service.Common.pdb
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service.Common\obj\Debug\Vehicles.Service.Common.dll
+C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service.Common\obj\Debug\Vehicles.Service.Common.pdb
