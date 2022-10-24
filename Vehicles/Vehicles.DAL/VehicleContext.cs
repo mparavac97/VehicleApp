@@ -17,27 +17,23 @@ namespace Vehicles.DAL
 		public VehicleContext() : base("VehicleContext")
 		{
 		}
-		public DbSet<IVehicleMake> VehicleMakes { get; set; }
-		public DbSet<Model.Common.IVehicleModel> VehicleModels { get; set; }
+
+		public DbSet<VehicleMake> VehicleMakes { get; set; }
+		public DbSet<VehicleModel> VehicleModels { get; set; }
 		
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
-			.Where(type => !String.IsNullOrEmpty(type.Namespace))
-			.Where(type => type.BaseType != null && type.BaseType.IsGenericType &&
-			type.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
-			foreach (var type in typesToRegister)
-			{
-				dynamic configurationInstance = Activator.CreateInstance(type);
-				modelBuilder.Configurations.Add(configurationInstance);
-			}
-			base.OnModelCreating(modelBuilder);
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 		}
 
-		public new IDbSet<T> Set<T>() where T : BaseEntity
+		public new DbSet<T> Set<T>() where T : BaseEntity
 		{
 			return base.Set<T>();
+		}
+
+		public void SetModified<T>(T entity) where T : BaseEntity
+		{
+			Entry(entity).State = EntityState.Modified;
 		}
 	}
 }

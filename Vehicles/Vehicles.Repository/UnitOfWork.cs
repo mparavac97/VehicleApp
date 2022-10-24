@@ -13,11 +13,11 @@ namespace Vehicles.Repository
 	public class UnitOfWork : IUnitOfWork
 	{
 		private IVehicleContext VehicleContext;
-		private IGenericRepository<VehicleMake> VehicleMakeRepository;
-		private IGenericRepository<Model.VehicleModel> VehicleModelRepository;
+		public IGenericRepository<VehicleMake> VehicleMakeRepository { get; set; }
+		public IGenericRepository<VehicleModel> VehicleModelRepository { get; set; }
 
 		public UnitOfWork(IVehicleContext vehicleContext, 
-						IGenericRepository<Model.VehicleModel> vehicleModelRepository,
+						IGenericRepository<VehicleModel> vehicleModelRepository,
 						IGenericRepository<VehicleMake> vehicleMakeRepository)
 		{
 			if (vehicleContext == null || vehicleModelRepository == null || vehicleMakeRepository == null)
@@ -29,9 +29,9 @@ namespace Vehicles.Repository
 			VehicleMakeRepository = vehicleMakeRepository;
 		}
 
-		public void Save() //commit
+		public async Task SaveAsync() //commit
 		{
-			VehicleContext.SaveChanges();
+			await this.VehicleContext.SaveChangesAsync();
 		}
 
 		public void Dispose()

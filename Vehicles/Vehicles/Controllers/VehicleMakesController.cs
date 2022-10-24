@@ -6,34 +6,37 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Vehicles.Common;
 using Vehicles.DAL;
 using Vehicles.Model;
 using Vehicles.Model.Common;
+using Vehicles.Service.Common;
 
 namespace Vehicles.Controllers
 {
     public class VehicleMakesController : ApiController
     {
-        private IVehicleContext db;
+        private IVehicleMakeService VehicleMakeService;
 
-        public VehicleMakesController(IVehicleContext vehicleContext)
+        public VehicleMakesController(IVehicleMakeService vehicleMakeService)
         {
-            this.db = vehicleContext;
+            VehicleMakeService = vehicleMakeService;
         }
 
         // GET: api/VehicleMakes
-        public IQueryable<IVehicleMake> GetVehicleMakes()
+        public async Task<List<VehicleMake>> GetVehicleMakesAsync([FromUri]Sorter sorter, [FromUri]string searchString)
         {
-            return db.VehicleMakes;
+            return await VehicleMakeService.GetAllAsync(sorter, searchString);
         }
 
         // GET: api/VehicleMakes/5
         [ResponseType(typeof(VehicleMake))]
-        public IHttpActionResult GetVehicleMake(int id)
+        public async Task<IHttpActionResult> GetVehicleMakeAsync(int id)
         {
-            IVehicleMake vehicleMake = db.VehicleMakes.Find(id);
+            VehicleMake vehicleMake = await VehicleMakeService.GetByIdAsync(id);
             if (vehicleMake == null)
             {
                 return NotFound();
@@ -44,82 +47,41 @@ namespace Vehicles.Controllers
 
         // PUT: api/VehicleMakes/5
         [ResponseType(typeof(void))]
-        /*public IHttpActionResult PutVehicleMake(int id, VehicleMake vehicleMake)
+        public async Task<IHttpActionResult> PutVehicleMakeAsync([FromBody]VehicleMake vehicleMake)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != vehicleMake.ID)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(vehicleMake).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!VehicleMakeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await VehicleMakeService.UpdateAsync(vehicleMake);
+            
             return StatusCode(HttpStatusCode.NoContent);
-        }*/
+        }
 
         // POST: api/VehicleMakes
         [ResponseType(typeof(VehicleMake))]
-        public IHttpActionResult PostVehicleMake(VehicleMake vehicleMake)
+        public async Task<IHttpActionResult> PostVehicleMakeAsync([FromBody]VehicleMake vehicleMake)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.VehicleMakes.Add(vehicleMake);
-            db.SaveChanges();
+            await VehicleMakeService.InsertAsync(vehicleMake);
+            
 
             return CreatedAtRoute("DefaultApi", new { id = vehicleMake.ID }, vehicleMake);
         }
-
+        
         // DELETE: api/VehicleMakes/5
         [ResponseType(typeof(VehicleMake))]
-        public IHttpActionResult DeleteVehicleMake(int id)
+        public async Task<IHttpActionResult> DeleteVehicleMakeAsync(int id)
         {
-            IVehicleMake vehicleMake = db.VehicleMakes.Find(id);
+            VehicleMake vehicleMake = await VehicleMakeService.GetByIdAsync(id);
             if (vehicleMake == null)
             {
                 return NotFound();
             }
 
-            db.VehicleMakes.Remove(vehicleMake);
-            db.SaveChanges();
+            await VehicleMakeService.DeleteAsync(vehicleMake);
 
             return Ok(vehicleMake);
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        /*private bool VehicleMakeExists(int id)
-        {
-            return db.VehicleMakes.Count(e => e.ID == id) > 0;
-        }*/
     }
 }

@@ -46,6 +46,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Vehicles.Common\Vehicles.Common.csproj">
+      <Project>{E3335A97-3E56-4D2B-84FB-F79CADF84B00}</Project>
+      <Name>Vehicles.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vehicles.DAL\Vehicles.DAL.csproj">
+      <Project>{1EE91AD0-CBD3-4B7E-AFD9-7087B122226B}</Project>
+      <Name>Vehicles.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Vehicles.Model.Common\Vehicles.Model.Common.csproj">
       <Project>{0BA79953-B0A6-4340-A53A-648920C82588}</Project>
       <Name>Vehicles.Model.Common</Name>

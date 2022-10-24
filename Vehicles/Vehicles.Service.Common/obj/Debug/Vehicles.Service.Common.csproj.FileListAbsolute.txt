@@ -2,3 +2,15 @@ C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service.Common\bin\Debug\V
 C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Service.Common.pdb
 C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service.Common\obj\Debug\Vehicles.Service.Common.dll
 C:\Users\Snježana\Desktop\Vehicles\Vehicles\Vehicles.Service.Common\obj\Debug\Vehicles.Service.Common.pdb
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Service.Common.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Service.Common.pdb
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Model.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Model.Common.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Model.pdb
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Model.Common.pdb
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\obj\Debug\Vehicles.Service.Common.csprojAssemblyReference.cache
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\obj\Debug\Vehicles.Service.Common.csproj.CopyComplete
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\obj\Debug\Vehicles.Service.Common.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\obj\Debug\Vehicles.Service.Common.pdb
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Common.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service.Common\bin\Debug\Vehicles.Common.pdb

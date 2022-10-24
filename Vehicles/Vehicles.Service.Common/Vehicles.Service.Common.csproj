@@ -41,7 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IVehicleModelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IVehicleMakeService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vehicles.Common\Vehicles.Common.csproj">
+      <Project>{E3335A97-3E56-4D2B-84FB-F79CADF84B00}</Project>
+      <Name>Vehicles.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vehicles.Model\Vehicles.Model.csproj">
+      <Project>{9FD8CD50-BA43-4AB3-9F18-19B58E1B0DD8}</Project>
+      <Name>Vehicles.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

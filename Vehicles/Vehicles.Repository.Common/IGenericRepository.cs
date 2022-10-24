@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vehicles.Common;
+using Vehicles.DAL;
 using Vehicles.Model;
 using Vehicles.Model.Common;
 
@@ -10,7 +12,8 @@ namespace Vehicles.Repository.Common
 {
 	public interface IGenericRepository<T> where T : BaseEntity
 	{
-		T GetById(object id);
+		Task<List<T>> GetAllAsync(Sorter sorter, string searchString);
+		Task<T> GetByIdAsync(object id);
 		void Insert(T entity);
 		void Update(T entity);
 		void Delete(T entity);
