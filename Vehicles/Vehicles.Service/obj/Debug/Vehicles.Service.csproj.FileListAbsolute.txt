@@ -19,3 +19,12 @@ C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\obj\Debug\Vehic
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\obj\Debug\Vehicles.Service.pdb
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\Vehicles.Common.dll
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\Vehicles.Common.pdb
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\System.Web.Cors.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\System.Web.Http.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\System.Web.Http.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Service\bin\Debug\System.Web.Http.Cors.xml

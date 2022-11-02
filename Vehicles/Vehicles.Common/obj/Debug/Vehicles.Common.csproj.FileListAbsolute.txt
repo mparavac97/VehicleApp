@@ -8,3 +8,13 @@ C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\Vehicl
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\obj\Debug\Vehicles.Common.csprojAssemblyReference.cache
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\obj\Debug\Vehicles.Common.dll
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\obj\Debug\Vehicles.Common.pdb
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\System.Web.Cors.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\System.Web.Http.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\System.Web.Http.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\bin\Debug\System.Web.Http.Cors.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.Common\obj\Debug\Vehicles.Common.csproj.CopyComplete

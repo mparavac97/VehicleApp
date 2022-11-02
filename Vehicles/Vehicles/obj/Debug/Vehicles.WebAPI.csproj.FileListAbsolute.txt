@@ -127,3 +127,6 @@ C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\Vehicles.Service.pd
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\Vehicles.Common.dll
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\Vehicles.Common.pdb
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\System.Linq.Dynamic.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\System.Web.Cors.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\System.Web.Http.Cors.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\System.Web.Http.Cors.xml

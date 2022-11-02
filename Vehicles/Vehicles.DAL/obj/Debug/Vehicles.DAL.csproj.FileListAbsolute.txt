@@ -28,3 +28,12 @@ C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\obj\Debug\Vehicles.
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\obj\Debug\Vehicles.DAL.csproj.CopyComplete
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\obj\Debug\Vehicles.DAL.dll
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\obj\Debug\Vehicles.DAL.pdb
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\System.Web.Cors.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\System.Web.Http.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\System.Web.Http.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles.DAL\bin\Debug\System.Web.Http.Cors.xml
