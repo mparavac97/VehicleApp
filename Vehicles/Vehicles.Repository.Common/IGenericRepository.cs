@@ -12,7 +12,7 @@ namespace Vehicles.Repository.Common
 {
 	public interface IGenericRepository<T> where T : BaseEntity
 	{
-		Task<List<T>> GetAllAsync(Sorter sorter, string searchString);
+		Task<List<T>> GetAllAsync(Sorter sorter, Filter filter, Pager pager);
 		Task<T> GetByIdAsync(object id);
 		void Insert(T entity);
 		void Update(T entity);

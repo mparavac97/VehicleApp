@@ -14,6 +14,7 @@ using Vehicles.DAL;
 using Vehicles.Model;
 using Vehicles.Model.Common;
 using Vehicles.Service.Common;
+using AutoMapper;
 
 namespace Vehicles.Controllers
 {
@@ -21,15 +22,25 @@ namespace Vehicles.Controllers
     {
         private IVehicleMakeService VehicleMakeService;
 
+        MapperConfiguration domainToRestConfig = new MapperConfiguration(cfg => {
+            cfg.CreateMap<BaseEntity, BaseEntityREST>()
+                .IncludeAllDerived();
+
+            cfg.CreateMap<VehicleMake, VehicleMakeREST>();
+            });
+
+
         public VehicleMakesController(IVehicleMakeService vehicleMakeService)
         {
             VehicleMakeService = vehicleMakeService;
         }
 
         // GET: api/VehicleMakes
-        public async Task<List<VehicleMake>> GetVehicleMakesAsync([FromUri]Sorter sorter, [FromUri]string searchString)
+        public async Task<List<VehicleMakeREST>> GetVehicleMakesAsync([FromBody]QueryParameters queryParameters)
         {
-            return await VehicleMakeService.GetAllAsync(sorter, searchString);
+            var mapper = domainToRestConfig.CreateMapper();
+            var vehicleMakeList = await VehicleMakeService.GetAllAsync(queryParameters.Sorter, queryParameters.Filter, queryParameters.Pager);
+            return mapper.Map<List<VehicleMake>, List<VehicleMakeREST>>(vehicleMakeList);
         }
 
         // GET: api/VehicleMakes/5

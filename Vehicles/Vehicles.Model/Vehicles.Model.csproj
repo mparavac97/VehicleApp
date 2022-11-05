@@ -57,9 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="BaseEntityREST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VehicleMake.cs" />
+    <Compile Include="VehicleMakeREST.cs" />
     <Compile Include="VehicleModel.cs" />
+    <Compile Include="VehicleModelREST.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Vehicles.Model.Common\Vehicles.Model.Common.csproj">

@@ -9,6 +9,6 @@ namespace Vehicles.Model
 {
 	public class VehicleMake : BaseEntity, IVehicleMake
 	{
-		public virtual ICollection<IVehicleModel> VehicleModels { get; set; } //navigation property
+		
 	}
 }

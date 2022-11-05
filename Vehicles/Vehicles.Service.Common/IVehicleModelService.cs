@@ -10,7 +10,7 @@ namespace Vehicles.Service.Common
 {
 	public interface IVehicleModelService
 	{
-		Task<List<VehicleModel>> GetAllAsync(Sorter sorter, string searchString);
+		Task<List<VehicleModel>> GetAllAsync(Sorter sorter, Filter filter, Pager pager);
 		Task<VehicleModel> GetByIdAsync(object id);
 		Task InsertAsync(VehicleModel entity);
 		Task UpdateAsync(VehicleModel entity);

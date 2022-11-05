@@ -130,3 +130,5 @@ C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\System.Linq.Dynamic
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\System.Web.Cors.dll
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\System.Web.Http.Cors.dll
 C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\System.Web.Http.Cors.xml
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\AutoMapper.dll
+C:\Users\Snježana\Desktop\VehiclesApp\Vehicles\Vehicles\bin\AutoMapper.xml

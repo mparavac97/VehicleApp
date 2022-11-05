@@ -35,20 +35,20 @@ namespace Vehicles.Repository
 			}
 		}
 
-		public async Task<List<T>> GetAllAsync(Sorter sorter, string searchString)
+		public async Task<List<T>> GetAllAsync(Sorter sorter, Filter filter, Pager pager)
 		{
 			var list = from v in this.Entities select v;
-			if (!String.IsNullOrEmpty(searchString))
+			if (filter != null)
 			{
-				list = list.Where(s => s.Name.Contains(searchString)
-									|| s.Abbreviation.Contains(searchString));
+				list = list.Where(s => s.Name.Contains(filter.Name)
+									|| s.Abbreviation.Contains(filter.Abbreviation));
 			}
 
 			if (sorter.SortBy != null && sorter.SortOrder != null)
 			{
 				list = list.OrderBy(sorter.SortBy + " " + sorter.SortOrder);
 			}
-
+			list = list.Skip((pager.PageNumber - 1) * pager.PageSize).Take(pager.PageSize);
 			return await list.ToListAsync();
 		}
 

@@ -10,7 +10,5 @@ namespace Vehicles.Model
 	public class VehicleModel : BaseEntity, Common.IVehicleModel
 	{
 		public int MakeID { get; set; } //foregin key
-
-		public virtual IVehicleMake VehicleMake { get; set; } //navigation property
 	}
 }

@@ -8,6 +8,6 @@ namespace Vehicles.Model.Common
 {
 	public interface IVehicleMake : IBaseEntity
 	{
-		ICollection<IVehicleModel> VehicleModels { get; set; }
+		
 	}
 }

@@ -24,9 +24,9 @@ namespace Vehicles.Controllers
 
 		// GET: api/VehicleModels
 		[Route("api/VehicleModels/")]
-		public async Task<List<VehicleModel>> GetVehicleMakesAsync([FromUri]Sorter sorter, [FromUri]string searchString)
+		public async Task<List<VehicleModel>> GetVehicleMakesAsync([FromBody]QueryParameters queryParameters)
 		{
-			return await VehicleModelService.GetAllAsync(sorter, searchString);
+			return await VehicleModelService.GetAllAsync(queryParameters.Sorter, queryParameters.Filter, queryParameters.Pager);
 		}
 
 		// GET: api/VehicleModels/5

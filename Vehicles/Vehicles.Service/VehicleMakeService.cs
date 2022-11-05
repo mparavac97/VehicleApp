@@ -19,9 +19,9 @@ namespace Vehicles.Service
 			UnitOfWork = unitOfWork;
 		}
 
-		public async Task<List<VehicleMake>> GetAllAsync(Sorter sorter, string searchString)
+		public async Task<List<VehicleMake>> GetAllAsync(Sorter sorter, Filter filter, Pager pager)
 		{
-			return await UnitOfWork.VehicleMakeRepository.GetAllAsync(sorter, searchString);
+			return await UnitOfWork.VehicleMakeRepository.GetAllAsync(sorter, filter, pager);
 		}
 		public Task<VehicleMake> GetByIdAsync(object id)
 		{

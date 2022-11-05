@@ -9,6 +9,5 @@ namespace Vehicles.Model.Common
 	public interface IVehicleModel : IBaseEntity
 	{
 		int MakeID { get; set; }
-		IVehicleMake VehicleMake { get; set; }
 	}
 }
