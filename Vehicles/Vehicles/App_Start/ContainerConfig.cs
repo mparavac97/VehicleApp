@@ -32,6 +32,7 @@ namespace Vehicles.App_Start
 
 			builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
 			builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
+			builder.RegisterType<VehicleModelRepository>().As<IVehicleModelRepository>();
 
 			builder.RegisterType<VehicleMakeService>().As<IVehicleMakeService>();
 			builder.RegisterType<VehicleModelService>().As<IVehicleModelService>();

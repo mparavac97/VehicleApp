@@ -13,15 +13,17 @@ namespace Vehicles.Service
 	public class VehicleModelService : IVehicleModelService
 	{
 		private IUnitOfWork UnitOfWork;
+		private IVehicleModelRepository VehicleModelRepository;
 
-		public VehicleModelService(IUnitOfWork unitOfWork)
+		public VehicleModelService(IUnitOfWork unitOfWork, IVehicleModelRepository vehicleModelRepository)
 		{
 			UnitOfWork = unitOfWork;
+			VehicleModelRepository = vehicleModelRepository;
 		}
 
 		public async Task<List<VehicleModel>> GetAllAsync(Sorter sorter, Filter filter, Pager pager)
 		{
-			return await UnitOfWork.VehicleModelRepository.GetAllAsync(sorter, filter, pager);
+			return await VehicleModelRepository.GetAllAsync(sorter, filter, pager);
 		}
 
 		public async Task<VehicleModel> GetByIdAsync(object id)

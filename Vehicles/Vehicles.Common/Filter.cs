@@ -10,6 +10,6 @@ namespace Vehicles.Common
 	{
 		public string Name { get; set; }
 		public string Abbreviation { get; set; }
-		public int MakeID { get; set; }
+		public int? MakeID { get; set; }
 	}
 }

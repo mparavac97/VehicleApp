@@ -10,12 +10,25 @@ using Vehicles.Common;
 using Vehicles.Model;
 using Vehicles.Service;
 using Vehicles.Service.Common;
+using AutoMapper;
 
 namespace Vehicles.Controllers
 {
 	public class VehicleModelsController : ApiController
 	{
 		private IVehicleModelService VehicleModelService;
+
+		MapperConfiguration domainToRestConfig = new MapperConfiguration(cfg => {
+			cfg.CreateMap<BaseEntity, BaseEntityREST>()
+				.IncludeAllDerived();
+			cfg.CreateMap<VehicleModel, VehicleModelREST>();
+		});
+
+		MapperConfiguration restToDomainConfig = new MapperConfiguration(cfg =>	{
+			cfg.CreateMap<BaseEntityREST, BaseEntity>()
+				.IncludeAllDerived();
+			cfg.CreateMap<VehicleModelREST, VehicleModel>();
+		});
 
 		public VehicleModelsController(IVehicleModelService vehicleModelService)
 		{
@@ -24,9 +37,11 @@ namespace Vehicles.Controllers
 
 		// GET: api/VehicleModels
 		[Route("api/VehicleModels/")]
-		public async Task<List<VehicleModel>> GetVehicleMakesAsync([FromBody]QueryParameters queryParameters)
+		public async Task<List<VehicleModelREST>> GetVehicleMakesAsync([FromBody]QueryParameters queryParameters)
 		{
-			return await VehicleModelService.GetAllAsync(queryParameters.Sorter, queryParameters.Filter, queryParameters.Pager);
+			var mapper = domainToRestConfig.CreateMapper();
+			var vehicleModelList = await VehicleModelService.GetAllAsync(queryParameters.Sorter, queryParameters.Filter, queryParameters.Pager);
+			return mapper.Map<List<VehicleModel>, List<VehicleModelREST>>(vehicleModelList);
 		}
 
 		// GET: api/VehicleModels/5
@@ -40,7 +55,9 @@ namespace Vehicles.Controllers
 				return NotFound();
 			}
 
-			return Ok(vehicleModel);
+			var mapper = domainToRestConfig.CreateMapper();
+			
+			return Ok(mapper.Map<VehicleModel, VehicleModelREST>(vehicleModel));
 		}
 
 		// PUT: api/VehicleMakes/5
