@@ -7,7 +7,11 @@ function App() {
   const [vehicleMakes, setVehicleMakes] = useState<any>([]);
   
   function getVehicleMakes() {
-    fetch('https://localhost:44370/api/VehicleMakes/?searchString=&SortBy=ID&SortOrder=ASC')
+    fetch('https://localhost:44370/api/VehicleMakes/?SortBy=ID&SortOrder=ASC&PageSize=10&PageNumber=1',{
+      headers: {
+        'Content-type': 'application/json'
+    },
+    })
     .then(response => response.json())
     .then(items => setVehicleMakes(items))
     

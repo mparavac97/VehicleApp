@@ -37,16 +37,18 @@ namespace Vehicles.Controllers
 
 		// GET: api/VehicleModels
 		[Route("api/VehicleModels/")]
-		public async Task<List<VehicleModelREST>> GetVehicleMakesAsync([FromBody]QueryParameters queryParameters)
+		public async Task<List<VehicleModelREST>> GetVehicleMakesAsync([FromUri]Sorter sorter, 
+																		[FromUri]Filter filter, 
+																		[FromUri]Pager pager)
 		{
 			var mapper = domainToRestConfig.CreateMapper();
-			var vehicleModelList = await VehicleModelService.GetAllAsync(queryParameters.Sorter, queryParameters.Filter, queryParameters.Pager);
+			var vehicleModelList = await VehicleModelService.GetAllAsync(sorter, filter, pager);
 			return mapper.Map<List<VehicleModel>, List<VehicleModelREST>>(vehicleModelList);
 		}
 
 		// GET: api/VehicleModels/5
 		[Route("api/VehicleModels/{id}")]
-		[ResponseType(typeof(VehicleModel))]
+		[ResponseType(typeof(VehicleModelREST))]
 		public async Task<IHttpActionResult> GetVehicleModelAsync(int id)
 		{
 			VehicleModel vehicleModel = await VehicleModelService.GetByIdAsync(id);
@@ -63,33 +65,35 @@ namespace Vehicles.Controllers
 		// PUT: api/VehicleMakes/5
 		[Route("api/VehicleModels/{id}")]
 		[ResponseType(typeof(void))]
-		public async Task<IHttpActionResult> PutVehicleModelAsync([FromBody]VehicleModel vehicleModel)
+		public async Task<IHttpActionResult> PutVehicleModelAsync([FromBody]VehicleModelREST vehicleModel)
 		{
-			await VehicleModelService.UpdateAsync(vehicleModel);
+			var mapper = restToDomainConfig.CreateMapper();
+			await VehicleModelService.UpdateAsync(mapper.Map<VehicleModelREST, VehicleModel>(vehicleModel));
 
 			return StatusCode(HttpStatusCode.NoContent);
-
 		}
 
 		// POST: api/VehicleModels
-		[Route("api/VehicleModels")]
+		[Route("api/VehicleModels/", Name="PostVehicleModel")]
 		[ResponseType(typeof(VehicleModel))]
-		public async Task<IHttpActionResult> PostVehicleModelAsync([FromBody]VehicleModel vehicleModel)
+		public async Task<IHttpActionResult> PostVehicleModelAsync([FromBody]VehicleModelREST vehicleModel)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			await VehicleModelService.InsertAsync(vehicleModel);
+			var mapper = restToDomainConfig.CreateMapper();
+
+			await VehicleModelService.InsertAsync(mapper.Map<VehicleModelREST, VehicleModel>(vehicleModel));
 
 
-			return CreatedAtRoute("DefaultApi", new { id = vehicleModel.ID }, vehicleModel);
+			return CreatedAtRoute("PostVehicleModel", new { id = vehicleModel.ID }, vehicleModel);
 		}
 
 		// DELETE: api/VehicleModels/5
 		[Route("api/VehicleModels/{id}")]
-		[ResponseType(typeof(VehicleModel))]
+		[ResponseType(typeof(VehicleModelREST))]
 		public async Task<IHttpActionResult> DeleteVehicleModelAsync(int id)
 		{
 			VehicleModel vehicleModel = await VehicleModelService.GetByIdAsync(id);
@@ -100,7 +104,9 @@ namespace Vehicles.Controllers
 
 			await VehicleModelService.DeleteAsync(vehicleModel);
 
-			return Ok(vehicleModel);
+			var mapper = domainToRestConfig.CreateMapper();
+
+			return Ok(mapper.Map<VehicleModel, VehicleModelREST>(vehicleModel));
 		}
 	}
 }

@@ -28,7 +28,12 @@ namespace Vehicles.Controllers
 
             cfg.CreateMap<VehicleMake, VehicleMakeREST>();
             });
-
+        
+        MapperConfiguration restToDomainConfig = new MapperConfiguration(cfg => {
+            cfg.CreateMap<BaseEntityREST, BaseEntity>()
+                .IncludeAllDerived();
+            cfg.CreateMap<VehicleModelREST, VehicleModel>();
+        });
 
         public VehicleMakesController(IVehicleMakeService vehicleMakeService)
         {
@@ -36,15 +41,19 @@ namespace Vehicles.Controllers
         }
 
         // GET: api/VehicleMakes
-        public async Task<List<VehicleMakeREST>> GetVehicleMakesAsync([FromBody]QueryParameters queryParameters)
+        [Route("api/VehicleMakes/")]
+        public async Task<List<VehicleMakeREST>> GetVehicleMakesAsync([FromUri]Sorter sorter,
+                                                                        [FromUri]Filter filter,
+                                                                        [FromUri]Pager pager)
         {
             var mapper = domainToRestConfig.CreateMapper();
-            var vehicleMakeList = await VehicleMakeService.GetAllAsync(queryParameters.Sorter, queryParameters.Filter, queryParameters.Pager);
+            var vehicleMakeList = await VehicleMakeService.GetAllAsync(sorter, filter, pager);
             return mapper.Map<List<VehicleMake>, List<VehicleMakeREST>>(vehicleMakeList);
         }
 
         // GET: api/VehicleMakes/5
-        [ResponseType(typeof(VehicleMake))]
+        [Route("api/VehicleMakes/{id}")]
+        [ResponseType(typeof(VehicleMakeREST))]
         public async Task<IHttpActionResult> GetVehicleMakeAsync(int id)
         {
             VehicleMake vehicleMake = await VehicleMakeService.GetByIdAsync(id);
@@ -53,35 +62,43 @@ namespace Vehicles.Controllers
                 return NotFound();
             }
 
-            return Ok(vehicleMake);
+            var mapper = domainToRestConfig.CreateMapper();
+
+            return Ok(mapper.Map<VehicleMake, VehicleMakeREST>(vehicleMake));
         }
 
         // PUT: api/VehicleMakes/5
+        [Route("api/VehicleMakes/{id}")]
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutVehicleMakeAsync([FromBody]VehicleMake vehicleMake)
+        public async Task<IHttpActionResult> PutVehicleMakeAsync([FromBody]VehicleMakeREST vehicleMake)
         {
-            await VehicleMakeService.UpdateAsync(vehicleMake);
-            
+            var mapper = restToDomainConfig.CreateMapper();
+            await VehicleMakeService.UpdateAsync(mapper.Map<VehicleMakeREST, VehicleMake>(vehicleMake));
+
             return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/VehicleMakes
+        [Route("api/VehicleMakes/", Name = "PostVehicleMake")]
         [ResponseType(typeof(VehicleMake))]
-        public async Task<IHttpActionResult> PostVehicleMakeAsync([FromBody]VehicleMake vehicleMake)
+        public async Task<IHttpActionResult> PostVehicleMakeAsync([FromBody]VehicleMakeREST vehicleMake)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await VehicleMakeService.InsertAsync(vehicleMake);
-            
+            var mapper = restToDomainConfig.CreateMapper();
 
-            return CreatedAtRoute("DefaultApi", new { id = vehicleMake.ID }, vehicleMake);
+            await VehicleMakeService.InsertAsync(mapper.Map<VehicleMakeREST, VehicleMake>(vehicleMake));
+
+
+            return CreatedAtRoute("PostVehicleMake", new { id = vehicleMake.ID }, vehicleMake);
         }
-        
+
         // DELETE: api/VehicleMakes/5
-        [ResponseType(typeof(VehicleMake))]
+        [Route("api/VehicleMakes/{id}")]
+        [ResponseType(typeof(VehicleMakeREST))]
         public async Task<IHttpActionResult> DeleteVehicleMakeAsync(int id)
         {
             VehicleMake vehicleMake = await VehicleMakeService.GetByIdAsync(id);
@@ -91,8 +108,9 @@ namespace Vehicles.Controllers
             }
 
             await VehicleMakeService.DeleteAsync(vehicleMake);
+            var mapper = domainToRestConfig.CreateMapper();
 
-            return Ok(vehicleMake);
+            return Ok(mapper.Map<VehicleMake, VehicleMakeREST>(vehicleMake));
         }
     }
 }
