@@ -11,7 +11,6 @@ namespace Vehicles
 		public static void Register(HttpConfiguration config)
 		{
 			// Web API configuration and services
-			config.EnableCors();
 			EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
 			config.EnableCors(cors);
 			// Web API routes

@@ -1,7 +1,26 @@
-import '../Styles/DataTable.css'
+import '../Styles/DataTable.css';
 import ModalForm from './ModalForm';
+import {Button} from 'reactstrap';
 
-function DataTable(props: { items: any[]; }) {
+function DataTable(props: { items: any[]; updateState?(vehicle: any): void; deleteItemFromState?(id: any): void }) {
+
+    function deleteItem(id: any) {
+        let confirmDelete = window.confirm('Delete item forever?');
+        let fetchString = 'https://localhost:44370/api/VehicleMakes/'
+        fetchString = fetchString.concat(id)
+        if (confirmDelete){
+            fetch(fetchString, {
+                method: 'delete',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then((item: any) => {
+                props.deleteItemFromState?.(item.ID)
+            })
+        }
+    }
 
     const items: any = props.items.map(item => {
         return(
@@ -10,8 +29,8 @@ function DataTable(props: { items: any[]; }) {
                 <td>{item.Name}</td>
                 <td>{item.Abbreviation}</td>
                 <td>
-                    <ModalForm buttonLabel="Edit" item={item}/*updateState={this.props.updateState}*/ />
-                    <button>Delete</button>
+                    <ModalForm buttonLabel="Edit" item={item} updateState={props.updateState} />
+                    <Button color='danger' onClick={() => deleteItem(item.ID)}>Delete</Button>
                 </td>
             </tr>
     )})

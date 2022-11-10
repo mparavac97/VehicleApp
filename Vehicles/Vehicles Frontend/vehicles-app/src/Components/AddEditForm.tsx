@@ -1,11 +1,13 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-function AddEditForm(props: any) {
+function AddEditForm(props: {
+    item?: any; addItemToState?: (item: any) => void; updateState?(vehicle: any): void; toggle(): void;
+}) {
     const [state, setState] = useState<any>({ID: 0, Name:'', Abbreviation:''});
 
     function onChange (event: ChangeEvent<HTMLInputElement> ) {
-        setState({[event.currentTarget.name]: event.target.value});
+       setState((prevState: any) => ({...prevState, [event.target.name]: event.target.value}));
     }
 
     function submitFormAdd(e: { preventDefault: () => void; }) {
@@ -20,11 +22,35 @@ function AddEditForm(props: any) {
                 Name: state.Name,
                 Abbreviation: state.Abbreviation
             })
-        })
-        .then(response => response.json())
+        })  
+        .then(response => response.json()) 
         .then(item => {
-            if (Array.isArray(item)) {
-                props.addItemtoState(item[0]);
+            if (item.length !== 0) {
+                props.addItemToState?.(item);
+                props.toggle();
+            }
+            else {
+                console.log('fail')
+            }
+        }) 
+    }
+
+    function submitFormEdit() {
+        fetch('https://localhost:44370/api/VehicleMakes/', {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ID: state.ID,
+                Name: state.Name,
+                Abbreviation: state.Abbreviation
+            })
+        })
+        .then(response => response.json)
+        .then(item => {
+            if(item.length !== 0) {
+                props.updateState?.(item);
                 props.toggle();
             }
         })
@@ -35,10 +61,10 @@ function AddEditForm(props: any) {
             const {ID, Name, Abbreviation} = props.item
             setState({ID, Name, Abbreviation})
         }
-    }, [state])
+    }, [props.item])
 
     return (
-        <Form onSubmit={submitFormAdd}>
+        <Form onSubmit={props.item ? submitFormEdit : submitFormAdd}>
             <FormGroup>
                 <Label for="ID">ID</Label>
                 <Input type="text" name="ID" id="ID" onChange={onChange} value={state.ID === null ? '' : state.ID} />
@@ -51,7 +77,7 @@ function AddEditForm(props: any) {
                 <Label for="Abbreviation">Abbreviation</Label>
                 <Input type="text" name="Abbreviation" id="Abbreviation" onChange={onChange} value={state.Abbreviation === null ? '' : state.Abbreviation} />
             </FormGroup>
-            <Button onClick={submitFormAdd}>Submit</Button>
+            <Button>Submit</Button>
         </Form>
     )
 }

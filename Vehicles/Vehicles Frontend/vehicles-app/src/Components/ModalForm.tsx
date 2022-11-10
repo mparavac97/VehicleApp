@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import AddEditForm from './AddEditForm';
 
 function ModalForm(props: {
-    buttonLabel?: any; item?: any; addItemToState?: (item: any) => void;
+    buttonLabel?: any; item?: any; addItemToState?: (item: any) => void; updateState?(vehicle: any): void;
 }) {
     
     const [modal, setModal] = useState(false)
@@ -41,7 +41,7 @@ function ModalForm(props: {
                 <Modal isOpen={modal} toggle={toggle} /*className={props.className}*/ >
                     <ModalHeader toggle={toggle} close={closeButton}>{title}</ModalHeader>
                     <ModalBody>
-                        <AddEditForm addItemToState={props.addItemToState} toggle={toggle} item={props.item}/>
+                        <AddEditForm addItemToState={props.addItemToState} updateState={props.updateState} toggle={toggle} item={props.item}/>
                     </ModalBody>
                 </Modal>
             </div>

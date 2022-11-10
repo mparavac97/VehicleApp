@@ -40,7 +40,7 @@ namespace Vehicles.Repository
 			IQueryable<T> templist = list;
 			if (filter != null)
 			{
-				if (filter.Name != null && filter.Abbreviation != null)
+				if (filter.Name != null || filter.Abbreviation != null)
 					templist = templist.Where(s => s.Name.Contains(filter.Name)
 										|| s.Abbreviation.Contains(filter.Abbreviation));
 			}

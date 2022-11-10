@@ -15,6 +15,7 @@ using Vehicles.Model;
 using Vehicles.Model.Common;
 using Vehicles.Service.Common;
 using AutoMapper;
+using System.Web.Http.Cors;
 
 namespace Vehicles.Controllers
 {
@@ -32,7 +33,7 @@ namespace Vehicles.Controllers
         MapperConfiguration restToDomainConfig = new MapperConfiguration(cfg => {
             cfg.CreateMap<BaseEntityREST, BaseEntity>()
                 .IncludeAllDerived();
-            cfg.CreateMap<VehicleModelREST, VehicleModel>();
+            cfg.CreateMap<VehicleMakeREST, VehicleMake>();
         });
 
         public VehicleMakesController(IVehicleMakeService vehicleMakeService)
@@ -68,14 +69,14 @@ namespace Vehicles.Controllers
         }
 
         // PUT: api/VehicleMakes/5
-        [Route("api/VehicleMakes/{id}")]
+        [Route("api/VehicleMakes/")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutVehicleMakeAsync([FromBody]VehicleMakeREST vehicleMake)
         {
             var mapper = restToDomainConfig.CreateMapper();
             await VehicleMakeService.UpdateAsync(mapper.Map<VehicleMakeREST, VehicleMake>(vehicleMake));
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(vehicleMake);
         }
 
         // POST: api/VehicleMakes
