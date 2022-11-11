@@ -1,8 +1,10 @@
+import React from 'react';
 import { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import AddEditForm from './AddEditForm';
+// @ts-ignore
+import MakesAddEditForm from './MakesAddEditForm.tsx';
 
-function ModalForm(props: {
+function MakesModalForm(props: {
     buttonLabel?: any; item?: any; addItemToState?: (item: any) => void; updateState?(vehicle: any): void;
 }) {
     
@@ -41,7 +43,7 @@ function ModalForm(props: {
                 <Modal isOpen={modal} toggle={toggle} /*className={props.className}*/ >
                     <ModalHeader toggle={toggle} close={closeButton}>{title}</ModalHeader>
                     <ModalBody>
-                        <AddEditForm addItemToState={props.addItemToState} updateState={props.updateState} toggle={toggle} item={props.item}/>
+                        <MakesAddEditForm addItemToState={props.addItemToState} updateState={props.updateState} toggle={toggle} item={props.item}/>
                     </ModalBody>
                 </Modal>
             </div>
@@ -49,4 +51,4 @@ function ModalForm(props: {
 }
 
 
-export default ModalForm;
+export default MakesModalForm;

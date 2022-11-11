@@ -1,12 +1,14 @@
 import '../Styles/DataTable.css';
-import ModalForm from './ModalForm';
+// @ts-ignore
+import ModelsModalForm from './ModelsModalForm.tsx';
 import {Button} from 'reactstrap';
+import React from 'react';
 
-function DataTable(props: { items: any[]; updateState?(vehicle: any): void; deleteItemFromState?(id: any): void }) {
+function ModelsDataTable(props: { items: any[]; updateState?(vehicle: any): void; deleteItemFromState?(id: any): void }) {
 
     function deleteItem(id: any) {
         let confirmDelete = window.confirm('Delete item forever?');
-        let fetchString = 'https://localhost:44370/api/VehicleMakes/'
+        let fetchString = 'https://localhost:44370/api/VehicleModels/'
         fetchString = fetchString.concat(id)
         if (confirmDelete){
             fetch(fetchString, {
@@ -19,6 +21,7 @@ function DataTable(props: { items: any[]; updateState?(vehicle: any): void; dele
             .then((item: any) => {
                 props.deleteItemFromState?.(item.ID)
             })
+            .catch()
         }
     }
 
@@ -26,10 +29,11 @@ function DataTable(props: { items: any[]; updateState?(vehicle: any): void; dele
         return(
             <tr key={item.ID}>
                 <td>{item.ID}</td>
+                <td>{item.MakeID}</td>
                 <td>{item.Name}</td>
                 <td>{item.Abbreviation}</td>
                 <td>
-                    <ModalForm buttonLabel="Edit" item={item} updateState={props.updateState} />
+                    <ModelsModalForm buttonLabel="Edit" item={item} updateState={props.updateState} />
                     <Button color='danger' onClick={() => deleteItem(item.ID)}>Delete</Button>
                 </td>
             </tr>
@@ -42,6 +46,7 @@ function DataTable(props: { items: any[]; updateState?(vehicle: any): void; dele
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>MakeID</th>
                     <th>Name</th>
                     <th>Abbreviation</th>
                     <th>Actions</th>
@@ -56,4 +61,4 @@ function DataTable(props: { items: any[]; updateState?(vehicle: any): void; dele
 }
 
 
-export default DataTable;
+export default ModelsDataTable;

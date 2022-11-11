@@ -1,10 +1,11 @@
+import React from "react";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-function AddEditForm(props: {
+function ModelsAddEditForm(props: {
     item?: any; addItemToState?: (item: any) => void; updateState?(vehicle: any): void; toggle(): void;
 }) {
-    const [state, setState] = useState<any>({ID: 0, Name:'', Abbreviation:''});
+    const [state, setState] = useState<any>({ID: 0, MakeID:'', Name:'', Abbreviation:''});
 
     function onChange (event: ChangeEvent<HTMLInputElement> ) {
        setState((prevState: any) => ({...prevState, [event.target.name]: event.target.value}));
@@ -12,13 +13,14 @@ function AddEditForm(props: {
 
     function submitFormAdd(e: { preventDefault: () => void; }) {
         e.preventDefault();
-        fetch('https://localhost:44370/api/VehicleMakes', {
+        fetch('https://localhost:44370/api/VehicleModels', {
             method: 'post',
             headers: {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
                 ID: state.ID,
+                MakeID: state.MakeID,
                 Name: state.Name,
                 Abbreviation: state.Abbreviation
             })
@@ -36,13 +38,14 @@ function AddEditForm(props: {
     }
 
     function submitFormEdit() {
-        fetch('https://localhost:44370/api/VehicleMakes/', {
+        fetch('https://localhost:44370/api/VehicleModels/', {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 ID: state.ID,
+                MakeID: state.MakeID,
                 Name: state.Name,
                 Abbreviation: state.Abbreviation
             })
@@ -58,8 +61,8 @@ function AddEditForm(props: {
 
     useEffect(() => {
         if(props.item) {
-            const {ID, Name, Abbreviation} = props.item
-            setState({ID, Name, Abbreviation})
+            const {ID, MakeID, Name, Abbreviation} = props.item
+            setState({ID, MakeID, Name, Abbreviation})
         }
     }, [props.item])
 
@@ -68,6 +71,10 @@ function AddEditForm(props: {
             <FormGroup>
                 <Label for="ID">ID</Label>
                 <Input type="text" name="ID" id="ID" onChange={onChange} value={state.ID === null ? '' : state.ID} />
+            </FormGroup>
+            <FormGroup>
+                <Label for="MakeID">MakeID</Label>
+                <Input type="text" name="MakeID" id="MakeID" onChange={onChange} value={state.MakeID === null ? '' : state.MakeID} />
             </FormGroup>
             <FormGroup>
                 <Label for="Name">Name</Label>
@@ -82,4 +89,4 @@ function AddEditForm(props: {
     )
 }
 
-export default AddEditForm;
+export default ModelsAddEditForm;

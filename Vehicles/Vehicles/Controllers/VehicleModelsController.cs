@@ -63,14 +63,14 @@ namespace Vehicles.Controllers
 		}
 
 		// PUT: api/VehicleMakes/5
-		[Route("api/VehicleModels/{id}")]
+		[Route("api/VehicleModels/")]
 		[ResponseType(typeof(void))]
 		public async Task<IHttpActionResult> PutVehicleModelAsync([FromBody]VehicleModelREST vehicleModel)
 		{
 			var mapper = restToDomainConfig.CreateMapper();
 			await VehicleModelService.UpdateAsync(mapper.Map<VehicleModelREST, VehicleModel>(vehicleModel));
 
-			return StatusCode(HttpStatusCode.NoContent);
+			return Ok(vehicleModel);
 		}
 
 		// POST: api/VehicleModels
